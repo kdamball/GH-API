@@ -1,6 +1,6 @@
 /*
- - Breakthrough
- - Now we only need to process the data received!
+  Author: Kado Damball
+  Licence: MIT
 */
 
 var GH = (function(details){
@@ -8,7 +8,7 @@ var GH = (function(details){
     connectToAPI, successHandler;
   
   successHandler = function(data){
-    return data ? console.log(JSON.parse(data)) : console.log("Something went wrong...call the GhostBusters");
+    return data ? JSON.parse(data) : console.log("Something went wrong...call the GhostBusters");
   };
   
   connectToAPI = function(req){
