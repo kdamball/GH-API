@@ -1,5 +1,6 @@
 /*
   Author: Kado Damball
+  URL: https://github.com/kdamball/GH-API
   Licence: MIT
 */
 
