@@ -1,5 +1,5 @@
 /*
-  Here's the problem. I can make this work fine. Here's one big problem however:
+  Here's the problem. I can make this work fine. However:
   I need to find a way to ensure that when getUser() is called, only then can it fire
   the ajax request. However, this means it will take time to return the result.
   Currently it either fires both requests (ie getUser & getRepo) or it tries to parse the response before ajax
