@@ -1,4 +1,5 @@
-var kado = new GH({user:"kdamball", events:"true"}),
+//this first part deals with the auto update of the Recent Activity Feed
+var kado = new GH({user:"kdamball", events:true}),
   kadoEvents = JSON.parse(kado.getEvents()),
   eventsType = {
     "PushEvent": "Pushed to",
@@ -13,8 +14,8 @@ var kado = new GH({user:"kdamball", events:"true"}),
   parseTime = function(t){
     var t = t.split("T")[0].split("-").map(function(e){return Number(e)}),
     then = new Date(t[0],t[1]-1,t[2]),
-    timeDiff = Math.floor(Date.now()-then.getTime()/86400000);
-    return timeDiff ? "Today" : timeDiff + " Day(s) ago";
+    timeDiff = Math.floor((Date.now()-then.getTime())/86400000);
+    return timeDiff ? timeDiff + " day(s) ago" : "Today" ;
   };
 
 var ghAPI = $(".gh-api li");
@@ -29,6 +30,8 @@ ghAPI.each(function(index){
   );
 });
 
+
+//Email obfuscation from crawlers
 $("#mail").mouseover(function(){
   $(this).html("kadodamball [at] gmail").fadeIn();
 }).mouseleave(function(){
