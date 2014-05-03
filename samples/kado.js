@@ -1,6 +1,6 @@
 //this first part deals with the auto update of the Recent Activity Feed
 var kado = new GH({user:"kdamball", events:true}),
-  kadoEvents = JSON.parse(kado.getEvents()),
+  kadoEvents = kado.getEvents(),
   eventsType = {
     "PushEvent": "Pushed to",
     "DeleteEvent": "Deleted something from",

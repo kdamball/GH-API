@@ -8,6 +8,10 @@ var GH = (function(details){
   var user, repo, org, events,
     connectToAPI, successHandler;
   
+  successHandler = function(success){
+    return JSON.parse(success());
+  };
+  
   connectToAPI = function(req){
     var xhrToGH = new XMLHttpRequest();
     xhrToGH.open("get", req, false);
