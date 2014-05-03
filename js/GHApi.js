@@ -21,17 +21,17 @@ var GH = (function(details){
   
   user = function(){
     var url = "https://api.github.com/users/" + details.user;
-    return details.user ? connectToAPI(url)() : console.log("Error, you need to provide a Github Username");
+    return details.user ? successHandler(connectToAPI(url)) : console.log("Error, you need to provide a Github Username");
   };
   
   repo = function(){
     var url = "https://api.github.com/repos/" + [details.user, details.repo].join("/");
-    return details.repo && details.user ? connectToAPI(url)() : console.log("Error, please provide a repo & username!");
+    return details.repo && details.user ? successHandler(connectToAPI(url)) : console.log("Error, please provide a repo & username!");
   };
   
   events = function(){
     var url = "https://api.github.com/users/" + [details.user, "events"].join("/");
-    return details.events && details.user ? connectToAPI(url)() : console.log("Error, please provide username and/or confirm events!");
+    return details.events && details.user ? successHandler(connectToAPI(url)) : console.log("Error, please provide username and/or confirm events!");
   };
   
   org = function(){
