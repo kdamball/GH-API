@@ -35,11 +35,13 @@ var GH = (function(details){
   };
   
   org = function(){
-    console.log("Sorry, Organization info isn't available yet. I'm working on it!");
+    var url = "https://api.github.com/orgs/" + details.organization;
+    return details.organization ? successHandler(connectToAPI(url)) : console.log("Error, please provide an organization name");
   };
   
   return {
     getUser: user,
+    getOrganization: org,
     getRepo: repo,
     getEvents: events
   };
