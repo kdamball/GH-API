@@ -8,7 +8,7 @@ GitHub API to Query Users &amp; Repos Info
 ```
 var githubUser = new GH({
 	user: "JAshkenas",
-	repo: "BackboneJS"
+	repo: "Backbone"
 })
 
 githubUser.getRepo(); //returns the BackboneJS repo information as an object
