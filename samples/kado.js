@@ -9,7 +9,11 @@ var kado = new GH({user:"kdamball", events:true}),
     "ForkEvent": "Forked",
     "CreateEvent": "Created",
     "PullRequestEvent": "Pull Request on",
-    "PullRequestReviewCommentEvent": "Commented on a pull request to"
+    "PullRequestReviewCommentEvent": "Commented on a pull request to",
+    "FollowEvent": "Followed",
+    "GollumEvent": "Wiki Edits for",
+    "IssueEvent": "Raised issue on",
+    "MemberEvent": "Joined"
   },
   parseTime = function(t){
     var t = t.split("T")[0].split("-").map(function(e){return Number(e)}),
