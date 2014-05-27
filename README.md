@@ -5,7 +5,7 @@ GitHub API to Query Users &amp; Repos Info
 
 **Example:**
 
-```
+```javascript
 var githubUser = new GH({
 	user: "JAshkenas",
 	repo: "Backbone"
