@@ -4,7 +4,7 @@ var kado = new GH({user:"kdamball", events:true}),
   eventsType = {
     "PushEvent": "Pushed to",
     "DeleteEvent": "Deleted something from",
-    "WatchEvent": "Followed",
+    "WatchEvent": "Starred",
     "IssueCommentEvent": "Commented on",
     "ForkEvent": "Forked",
     "CreateEvent": "Created",
