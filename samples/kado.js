@@ -12,7 +12,7 @@ var kado = new GH({user:"kdamball", events:true}),
     "PullRequestReviewCommentEvent": "Commented on a pull request to",
     "FollowEvent": "Followed",
     "GollumEvent": "Wiki Edits for",
-    "IssueEvent": "Raised issue on",
+    "IssuesEvent": "Raised an issue on",
     "MemberEvent": "Joined"
   },
   parseTime = function(t){
