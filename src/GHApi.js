@@ -6,11 +6,15 @@
 
 var GH = (function(details){
   var user, repo, org, events,
-    connectToAPI, successHandler;
+    connectToAPI, successHandler, errorHandler;
   
   successHandler = function(success){
     return JSON.parse(success);
   };
+  
+  errorHandler = function(id, extra){
+    throw new Error("Please provide either the user or repo's name (dont forget to confirm events)");
+  }
   
   connectToAPI = function(req){
     var xhrToGH = new XMLHttpRequest();
@@ -23,22 +27,22 @@ var GH = (function(details){
   
   user = function(){
     var url = "https://api.github.com/users/" + details.user;
-    return details.user ? successHandler(connectToAPI(url)) : throw new Error("Please provide a Github Username");
+    return details.user ? successHandler(connectToAPI(url)) : errorHandler(0);
   };
   
   org = function(){
     var url = "https://api.github.com/orgs/" + details.organization;
-    return details.organization ? successHandler(connectToAPI(url)) : throw new Error("Please provide an organization name");
+    return details.organization ? successHandler(connectToAPI(url)) : errorHandler(1);
   };
   
   repo = function(){
     var url = "https://api.github.com/repos/" + [details.user || details.organization, details.repo].join("/");
-    return details.repo && (details.user || details.organization) ? successHandler(connectToAPI(url)) : throw new Error("Please provide a repo & username/organization!");
+    return details.repo && (details.user || details.organization) ? successHandler(connectToAPI(url)) : errorHandler(0, 2);
   };
   
   events = function(){
     var url = "https://api.github.com/users/" + [details.user || details.organization, "events"].join("/");
-    return details.events && (details.user || details.organization) ? successHandler(connectToAPI(url)) : throw new Error("Please provide username/organization and/or confirm events!");
+    return details.events && (details.user || details.organization) ? successHandler(connectToAPI(url)) : errorHandler(0, 3);
   };
   
   
