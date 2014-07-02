@@ -13,7 +13,7 @@ var GH = (function(details){
   };
   
   errorHandler = function(id, extra){
-    throw new Error("Please provide either the user or repo's name (dont forget to confirm events)");
+    throw new Error("Please provide either the user or repo's name and/or confirm events");
   }
   
   connectToAPI = function(req){
