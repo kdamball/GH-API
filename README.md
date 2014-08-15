@@ -1,7 +1,7 @@
 GH-API
 ======
 
-GitHub API to Query Users &amp; Repos Info. Provide a GitHub information (Username, orgranization, Repo or Events) you want data for
+GitHub API to Query Users &amp; Repos Info. Provide a GitHub information (Username, organization, Repo or Events) you want data for
 and receive JSON data back. Works with [GitHub's Restful API](https://api.github.com) 
 
 **Example:**
