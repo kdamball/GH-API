@@ -31,11 +31,6 @@ GH = (details)->
     url += [details.user or details.organization, "events"].join("/")
     if details.events and details.organization or details.user then successHandler(connectToAPI url) else errorHandler
     
-  {
-    getUser: user,
-    getOrganization: org,
-    getRepo: repo,
-    getEvents: events
-  }
+  getUser: user, getOrganization: org, getRepo: repo, getEvents: events
     
     
