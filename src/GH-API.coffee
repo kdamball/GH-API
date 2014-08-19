@@ -24,7 +24,7 @@ GH = (details)->
     
   repo = ()->
     url = baseUrl + "repos/" + [details.user or details.organization, details.repo].join("/")
-    if details.repo and details.user or details.orgranization then successHandler(connectToAPI url) else errorHandler
+    if details.repo and (details.user or details.orgranization) then successHandler(connectToAPI url) else errorHandler
     
   events = ()->
     url = baseUrl + "users/"

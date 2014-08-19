@@ -41,7 +41,7 @@
     repo = function() {
       var url;
       url = baseUrl + "repos/" + [details.user || details.organization, details.repo].join("/");
-      if (details.repo && details.user || details.orgranization) {
+      if (details.repo && (details.user || details.orgranization)) {
         return successHandler(connectToAPI(url));
       } else {
         return errorHandler;
