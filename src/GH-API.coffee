@@ -1,4 +1,4 @@
-GH = (details)->
+@GH = (details)->
   baseUrl = "https://api.github.com/"
 
   successHandler = (success)->
@@ -14,23 +14,24 @@ GH = (details)->
     xhrToGH.onload = do ()->
       xhrToGH.response
       
-  user = ()->
+  user = ->
     url = baseUrl + details.user
     if details.user then successHandler(connectToAPI url) else errorHandler
   
-  org = ()->
+  org = ->
     url = baseUrl + "orgs/" + details.organization
     if details.organization then successHandler(connectToAPI url) else errorHandler
     
-  repo = ()->
+  repo = ->
     url = baseUrl + "repos/" + [details.user or details.organization, details.repo].join("/")
     if details.repo and (details.user or details.orgranization) then successHandler(connectToAPI url) else errorHandler
     
-  events = ()->
+  events = ->
     url = baseUrl + "users/"
     url += [details.user or details.organization, "events"].join("/")
     if details.events and details.organization or details.user then successHandler(connectToAPI url) else errorHandler
     
-  getUser: user, getOrganization: org, getRepo: repo, getEvents: events
-    
-    
+  getUser: user, 
+  getOrganization: org, 
+  getRepo: repo, 
+  getEvents: events
