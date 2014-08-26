@@ -33,11 +33,3 @@ ghAPI.each(function(index){
     parseTime(kadoEvents[index].created_at)+"]"
   );
 });
-
-
-//Email obfuscation from crawlers
-$("#mail").mouseover(function(){
-  $(this).html("kadodamball [at] gmail").fadeIn();
-}).mouseleave(function(){
-  $(this).html("Email").fadeIn();
-});
