@@ -6,6 +6,12 @@
 
 (function(){
   var GH = (function(details){
+    "use strict";
+
+    if(!this){
+      return new GH(details);
+    };
+
     var user, repo, org, events,
       connectToAPI, successHandler, errorHandler;
     
@@ -15,7 +21,7 @@
     
     errorHandler = function(){
       throw new Error("Please provide either the user, repo's name and/or confirm events");
-    }
+    };
     
     connectToAPI = function(req){
       var xhrToGH = new XMLHttpRequest();
