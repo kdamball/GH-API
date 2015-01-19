@@ -1,5 +1,6 @@
 //this first part deals with the auto update of the Recent Activity Feed
-var kado = new GH({user:"kdamball", events:true}),
+(function(){
+  var kado = new GH({user:"kdamball", events:true}),
   kadoEvents = kado.getEvents(),
   eventsType = {
     "PushEvent": "Pushed to",
@@ -22,14 +23,15 @@ var kado = new GH({user:"kdamball", events:true}),
     return timeDiff ? timeDiff + " day(s) ago" : "Today" ;
   };
 
-var ghAPI = $(".gh-api li");
+  var ghAPI = $(".gh-api li");
 
-ghAPI.each(function(index){
-  $(this).html(
-    eventsType[kadoEvents[index].type]+
-    " <a href='"+ 
-    kadoEvents[index].repo.url.replace(/api\./,'').replace(/repos\//,'')+
-    "'>"+ kadoEvents[index].repo.name+"</a> Repo ["+
-    parseTime(kadoEvents[index].created_at)+"]"
-  );
-});
+  ghAPI.each(function(index){
+    $(this).html(
+      eventsType[kadoEvents[index].type]+
+      " <a href='"+ 
+      kadoEvents[index].repo.url.replace(/api\./,'').replace(/repos\//,'')+
+      "'>"+ kadoEvents[index].repo.name+"</a> Repo ["+
+      parseTime(kadoEvents[index].created_at)+"]"
+    );
+  });
+})();
