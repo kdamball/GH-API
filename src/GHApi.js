@@ -25,7 +25,7 @@
     
     connectToAPI = function(req){
       var xhrToGH = new XMLHttpRequest();
-      xhrToGH.open("get", req, true);
+      xhrToGH.open("get", req, false);
       xhrToGH.send();
       return xhrToGH.onload = (function(){
         return xhrToGH.response
