@@ -8,6 +8,10 @@
   var GH = (function(details){
     "use strict";
 
+    if(!details || Object.keys(details).length == 0) {
+      throw new Error("No Github details passed");
+    };
+
     if(!this){
       return new GH(details);
     };
